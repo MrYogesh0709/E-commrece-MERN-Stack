@@ -9,6 +9,7 @@ import { sanitizeUser } from "../middleware/customMiddleware.js";
 import passport from "passport";
 import jwt from "jsonwebtoken";
 import { sendMail } from "../utils/nodeMailerConfig.js";
+import { origin } from "../utils/origin.js";
 
 export const createUser = async (req, res) => {
   const { email } = req.body;
@@ -18,9 +19,7 @@ export const createUser = async (req, res) => {
   }
   const verificationToken = crypto.randomBytes(48).toString("hex");
 
-  //TODO:CHANGE THIS
-  // const origin = "http://localhost:5173";
-  const origin = "https://ecommrece-mern.vercel.app";
+  //?:-> confirm it
   const verifyEmail = `${origin}/user/verify-email?token=${verificationToken}&email=${email}`;
   const subject = "Email Confirmation";
   const html = `<p>Please confirm your email by clicking on the following link : 
@@ -88,9 +87,6 @@ export const sendVerifyMailUser = async (req, res) => {
       );
     } else {
       const verificationToken = crypto.randomBytes(48).toString("hex");
-
-      // const origin = "http://localhost:5173";
-      const origin = "https://ecommrece-mern.vercel.app";
 
       const verifyEmail = `${origin}/user/verify-email?token=${verificationToken}&email=${email}`;
       const subject = "Email Confirmation";
@@ -176,8 +172,6 @@ export const forgotPasswordRequest = async (req, res) => {
   if (user) {
     const token = crypto.randomBytes(48).toString("hex");
     //TODO:CHANGE THIS
-    const origin = "http://localhost:5173";
-    // const origin = "https://ecommrece-mern.vercel.app";
     const resetURL = `${origin}/reset-password?token=${token}&email=${email}`;
     const subject = "reset password for E-commerce";
     const html = `<p>Please reset password by clicking on the following link : <a href="${resetURL}">Reset Password</a></p>`;
