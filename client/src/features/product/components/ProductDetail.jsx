@@ -10,7 +10,6 @@ import {
 } from "../productSlice";
 import { addToCartAsync, selectCart } from "../../cart/cartSlice";
 import { toast } from "react-toastify";
-import Error from "../../common/error";
 import { selectAuth } from "../../auth/authSlice";
 import { scrollToReviewSection } from "../../common/SmoothScroll";
 import { classNames, formatPrice } from "../../../app/constants";
@@ -19,11 +18,7 @@ import { selectReview } from "../../Review/reviewSlice";
 export default function ProductDetail() {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const {
-    singleProduct: product,
-    isLoading,
-    error,
-  } = useSelector(selectAllProducts);
+  const { singleProduct: product, isLoading } = useSelector(selectAllProducts);
   const { cartItems } = useSelector(selectCart);
   const { user } = useSelector(selectAuth);
   const { totalReviews } = useSelector(selectReview);
@@ -55,12 +50,11 @@ export default function ProductDetail() {
       toast.info("Already added to Cart");
     }
   };
-  if (error) {
-    return <Error error={error} />;
+
+  if (isLoading) {
+    return <ProductDetailSkeleton />;
   } else
-    return isLoading ? (
-      <ProductDetailSkeleton />
-    ) : (
+    return (
       <div className="bg-white dark:bg-slate-900">
         <div className="pt-6">
           <nav aria-label="Breadcrumb">
