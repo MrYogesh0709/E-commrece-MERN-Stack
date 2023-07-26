@@ -63,6 +63,7 @@ server.use(
 );
 server.use(passport.initialize()); // Initialize Passport middleware
 server.use(passport.authenticate("session"));
+
 //v2
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -70,19 +71,6 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
   secure: true,
 });
-
-//:--> add discount price
-// server.get("/products", async (req, res) => {
-//   const products = await ProductModel.find({});
-//   for (const item of products) {
-//     const discountedPrice = Number(
-//       item.price * (1 - item.discountPercentage / 100)
-//     ).toFixed(2);
-//     item.discountPrice = +discountedPrice;
-//     await item.save();
-//   }
-//   res.send("ok");
-// });
 
 server.post("/api/v1/create-payment-intent", stripeController);
 server.use("/api/v1/products", productRouter);
@@ -102,7 +90,7 @@ server.get("*", (req, res) => {
 server.use("*", notFoundMiddleware);
 server.use(errorHandlerMiddleware);
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 const start = async () => {
   try {
