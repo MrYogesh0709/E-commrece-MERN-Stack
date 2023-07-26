@@ -210,9 +210,9 @@ function UserOrderSkeleton() {
         <div className="skeleton-loader w-48 h-6 dark:bg-slate-700 bg-slate-200"></div>
         <div className="skeleton-loader w-28 h-6 dark:bg-slate-700 bg-slate-200"></div>
       </div>
-      <p className="my-1 text-sm text-gray-900 font-semibold dark:text-slate-200">
+      <div className="my-1 text-sm text-gray-900 font-semibold dark:text-slate-200">
         <div className="skeleton-loader w-60 h-4 dark:bg-slate-700 bg-slate-200"></div>
-      </p>
+      </div>
     </div>
   );
 }

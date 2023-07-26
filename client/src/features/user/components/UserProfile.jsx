@@ -229,9 +229,9 @@ function UserProfileSkeleton() {
       <h3 className="text-xl my-5 font-bold tracking-tight text-gray-900 dark:text-slate-200">
         <div className="skeleton-loader w-80 h-7 bg-slate-200 dark:bg-slate-700"></div>
       </h3>
-      <p className="my-1 text-xl text-gray-900 font-semibold dark:text-slate-200">
+      <div className="my-1 text-xl text-gray-900 font-semibold dark:text-slate-200">
         <div className="skeleton-loader w-60 h-6 bg-slate-200 dark:bg-slate-700"></div>
-      </p>
+      </div>
     </div>
   );
 }
