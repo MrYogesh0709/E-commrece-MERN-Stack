@@ -34,7 +34,7 @@ import Pagination from "../../common/Pagination";
 import notFound from ".././../../assets/no-product.svg";
 
 const sortOptions = [
-  { name: "Best Rating", sort: "rating", order: "desc", current: false },
+  { name: "Best Rating", sort: "averageRating", order: "desc", current: false },
   // { name: "Newest",sort:"rating", current: false },
   {
     name: "Price: Low to High",
