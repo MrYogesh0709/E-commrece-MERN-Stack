@@ -5,6 +5,7 @@ import Footer from "../features/common/Footer";
 
 const Home = () => {
   return (
+    // Home for user
     <>
       <Navbar title="Products">
         <ProductList />
