@@ -74,8 +74,6 @@ export const authSlice = createSlice({
       })
       .addCase(createUserAsync.fulfilled, (state, action) => {
         state.status = "idle";
-        // state.user = action.payload;
-        // toast.success("SignUp successfully");
         state.msg = action.payload.msg;
         toast.success("Check your mail for verification and Login In");
       })
