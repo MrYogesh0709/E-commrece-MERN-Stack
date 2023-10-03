@@ -16,7 +16,7 @@ export const createProduct = async (req, res) => {
 export const fetchAllProducts = async (req, res) => {
   //filter = {"category":["smartphones","laptop"]}
   //sort = {_sort:"price",_order:"desc"}
-  //pagination ={_page=1,limit=10}
+  //pagination = {_page=1,limit=10}
   const { category, brand, _sort, _order, admin, search } = req.query;
 
   const query = !admin ? { deleted: { $ne: true } } : {};
