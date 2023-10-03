@@ -44,7 +44,7 @@ const ForgotPasswordPage = React.lazy(() =>
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <Home />, //user
     errorElement: <SinglePageError />,
   },
   {
