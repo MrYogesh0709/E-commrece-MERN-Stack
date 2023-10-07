@@ -36,7 +36,7 @@ import {
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // only when ready to deploy
-server.use(express.static(path.resolve(__dirname, "'./client/dist")));
+server.use(express.static(path.resolve(__dirname, "./client/dist")));
 
 //:-> Webhook
 //*: we can capture order after deploying out server live on public URL before test local as per docs
